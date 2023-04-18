@@ -16,8 +16,8 @@ end
 
 ned = Manager.new("Ned", "Founder", 1000000,nil)
 darren = Manager.new("darren", "TA Manager", 78000,nil)
-shawna = Manager.new("Shawna", "TA", 12000,nil)
-david = Manager.new("David", "TA", 10000,nil)
+shawna = Employee.new("Shawna", "TA", 12000,nil)
+david = Employee.new("David", "TA", 10000,nil)
 
 ned.direct_reports = [darren]
 darren.direct_reports = [shawna,david]

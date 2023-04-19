@@ -8,9 +8,9 @@ class King < Piece
     '♚'.colorize(color)
   end
 
-  protected
+#   protected
 
   def move_diffs
-    # return an array of diffs representing where a King can step to
+    moves(KING_POTENTIAL_MOVES)
   end
 end

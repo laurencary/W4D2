@@ -8,9 +8,9 @@ class Knight < Piece
     '♞'.colorize(color)
   end
 
-  protected
+#   protected
 
   def move_diffs
-    # return an array of diffs representing where a Knight can step to
+    moves(KNIGHT_POTENTIAL_MOVES)
   end
 end

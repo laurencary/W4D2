@@ -1,5 +1,6 @@
 require_relative 'piece'
 require_relative "../modules/slideable.rb"
+require 'colorize'
 
 class Bishop < Piece
   include Slideable

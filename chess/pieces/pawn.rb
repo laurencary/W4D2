@@ -1,4 +1,5 @@
 require_relative "piece"
+require 'colorize'
 
 class Pawn < Piece
     TOP_DIAGONAL_DIRS = [[1,1],[1,-1]]
@@ -11,6 +12,7 @@ class Pawn < Piece
     end
 
     def symbol
+        '♟'.colorize(color)
     end
 
     # private

@@ -1,5 +1,6 @@
 require_relative 'piece'
 require_relative "../modules/stepable.rb"
+require 'colorize'
 
 class King < Piece
   include Stepable

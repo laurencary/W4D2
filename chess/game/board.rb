@@ -6,6 +6,7 @@ require_relative "../pieces/rook.rb"
 require_relative "../pieces/king.rb"
 require_relative "../pieces/knight.rb"
 require_relative "../pieces/pawn.rb"
+require 'byebug'
 
 class Board
     attr_reader :rows
@@ -59,10 +60,11 @@ class Board
         puts valid_pos?(end_pos)
         if valid_pos?(start_pos) && valid_pos?(end_pos)
             piece = self[start_pos]
-            if piece.nil?
+            if piece.empty?
                 raise "no piece at start position"
             else
                 self[start_pos] = NullPiece.instance
+                debugger
                 piece.pos = end_pos
                 self[end_pos] = piece
                 piece.board = @rows

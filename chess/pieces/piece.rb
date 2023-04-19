@@ -12,6 +12,11 @@ class Piece
     def to_s
     end
 
+    def [](pos)
+        x, y = pos
+        @board.rows[x][y]
+    end
+
     def empty?
         self.class == NullPiece
     end

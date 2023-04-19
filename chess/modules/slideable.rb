@@ -22,10 +22,10 @@ module Slideable
         DIAGONAL_DIRS
     end
 
-    def moves
+    def moves(dirs)
         potential_moves = []
 
-        horizontal_dirs.each do |dir|
+        dirs.each do |dir|
             current_row, current_col = dir[0], dir[1]
             # debugger
             potential_moves += grow_unblocked_moves_in_dir(current_row, current_col)

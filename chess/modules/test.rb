@@ -1,7 +1,7 @@
 
 
 
-def moves
+def grow_unblocked_moves_in_dir(dx, dy)
     horizontal_dirs = [
         [1,0],
         [0,1],
@@ -15,34 +15,30 @@ def moves
             [1,1]
         ]
 
+
+
     potential_moves = []
-    #     horizontal_dirs.each do |h_dir|
-    #         pos = [3,3]
 
-    #         7.times do 
-    #             new_pos = [pos[0] + h_dir[0],pos[1] + h_dir[1]]
-
-    #             if !(new_pos[0] < 0 || new_pos[0] > 7 || new_pos[1] < 0 || new_pos[1] > 7)
-    #                 potential_moves << new_pos
-    #                 pos = new_pos
-    #             end
-    #         end
-    #     end
-
-
-            diagonal_dirs.each do |d_dir|
-                pos = [7,7]
-
-                7.times do 
-                    new_pos = [pos[0] + d_dir[0],pos[1] + d_dir[1]]
-
-                    if !(new_pos[0] < 0 || new_pos[0] > 7 || new_pos[1] < 0 || new_pos[1] > 7)
-                        potential_moves << new_pos
-                        pos = new_pos
-                    end
-                end
+    current_row = 3
+    current_col = 3
+    continue = true
+    while continue
+        if (0..3).include?(current_row + dx) && (0..3).include?(current_col + dy)
+            potential_pos = [current_row + dx, current_col + dy]
+            if self[potential_pos].empty?
+                potential_moves << potential_pos
+            elsif self[potential_pos].color != self.color 
+                potential_moves << potential_pos 
+                continue = false
+            else
+                continue = false
             end
-    p potential_moves
+        else 
+            continue = false
+        end
+    end
+    potential_moves
 end
 
-moves
+b = Array.new(3){Array.new(3, nil)}
+

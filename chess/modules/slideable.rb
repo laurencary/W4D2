@@ -1,3 +1,5 @@
+require 'byebug'
+
 module Slideable
 
     HORIZONTAL_DIRS = [
@@ -22,30 +24,36 @@ module Slideable
 
     def moves
         potential_moves = []
-        if self.class != Bishop
-            horizontal_dirs.each do |h_dir|
+
+        horizontal_dirs.each do |dir|
+            current_row, current_col = dir[0], dir[1]
+            potential_moves << grow_unblocked_moves_in_dir(current_row, current_col)
+        end
+
+        # if self.class != Bishop
+        #     horizontal_dirs.each do |h_dir|
                 
 
-                7.times do 
+        #         7.times do 
                    
-                end
-            end
-        end
+        #         end
+        #     end
+        # end
         
-        if self.class != Rook
-            diagonal_dirs.each do |d_dir|
-                pos = self.pos
+        # if self.class != Rook
+        #     diagonal_dirs.each do |d_dir|
+        #         pos = self.pos
 
-                7.times do 
-                    # new_pos = [pos[0] + d_dir[0],pos[1] + d_dir[1]]
+        #         7.times do 
+        #             # new_pos = [pos[0] + d_dir[0],pos[1] + d_dir[1]]
 
-                    # if !(new_pos[0] < 0 || new_pos[0] > 7 || new_pos[1] < 0 || new_pos[1] > 7)
-                    #     potential_moves << new_pos
-                    #     pos = new_pos
-                    # end
-                end
-            end
-        end
+        #             # if !(new_pos[0] < 0 || new_pos[0] > 7 || new_pos[1] < 0 || new_pos[1] > 7)
+        #             #     potential_moves << new_pos
+        #             #     pos = new_pos
+        #             # end
+        #         end
+        #     end
+        # end
         potential_moves
     end
 
@@ -71,9 +79,10 @@ module Slideable
         while continue
             if (0..7).include?(current_row + dx) && (0..7).include?(current_col + dy)
                 potential_pos = [current_row + dx, current_col + dy]
-                if self[potential_pos].empty?
+                debugger
+                if self.board[potential_pos].empty?
                     potential_moves << potential_pos
-                elsif self[potential_pos].color != self.color 
+                elsif self.board[potential_pos].color != self.color 
                     potential_moves << potential_pos 
                     continue = false
                 else

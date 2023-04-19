@@ -1,4 +1,8 @@
+require_relative "../modules/slideable.rb"
+
+
 class Piece
+    include Slideable
     attr_accessor :color, :board, :pos
 
     def initialize(color, board, pos)
@@ -10,6 +14,11 @@ class Piece
 
     def empty?
 
+    end
+    
+    def [](pos)
+        x, y = pos
+        @board[x][y]
     end
 
     def valid_moves

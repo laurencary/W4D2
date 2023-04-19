@@ -1,5 +1,6 @@
 require_relative "../pieces/piece.rb"
 
+
 class Board
     attr_reader :rows
     def initialize
@@ -8,11 +9,11 @@ class Board
         (0..7).each do |i|
             if i <= 1 
                 (0..7).each do |j|
-                    @rows[i][j] = Piece.new(:white, @rows, [i,j])
+                    @rows[i][j] = Piece.new(:white, self, [i,j])
                 end
             elsif i >= 6
                 (0..7).each do |j|
-                    @rows[i][j] = Piece.new(:black, @rows, [i,j])
+                    @rows[i][j] = Piece.new(:black, self, [i,j])
                 end
             end
         end

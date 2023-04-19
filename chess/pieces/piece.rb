@@ -13,7 +13,7 @@ class Piece
     end
 
     def empty?
-
+        self.class == NullPiece
     end
 
     def valid_moves

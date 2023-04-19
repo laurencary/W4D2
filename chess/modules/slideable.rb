@@ -27,34 +27,10 @@ module Slideable
 
         horizontal_dirs.each do |dir|
             current_row, current_col = dir[0], dir[1]
-            debugger
+            # debugger
             potential_moves += grow_unblocked_moves_in_dir(current_row, current_col)
         end
 
-        # if self.class != Bishop
-        #     horizontal_dirs.each do |h_dir|
-                
-
-        #         7.times do 
-                   
-        #         end
-        #     end
-        # end
-        
-        # if self.class != Rook
-        #     diagonal_dirs.each do |d_dir|
-        #         pos = self.pos
-
-        #         7.times do 
-        #             # new_pos = [pos[0] + d_dir[0],pos[1] + d_dir[1]]
-
-        #             # if !(new_pos[0] < 0 || new_pos[0] > 7 || new_pos[1] < 0 || new_pos[1] > 7)
-        #             #     potential_moves << new_pos
-        #             #     pos = new_pos
-        #             # end
-        #         end
-        #     end
-        # end
         potential_moves
     end
 
@@ -78,6 +54,7 @@ module Slideable
         current_col = self.pos[1]
         continue = true
         while continue
+            # debugger
             if (0..7).include?(current_row + dx) && (0..7).include?(current_col + dy)
                 potential_pos = [current_row + dx, current_col + dy]
                 if self.board[potential_pos].empty?
@@ -91,6 +68,7 @@ module Slideable
             else 
                 continue = false
             end
+            current_row, current_col = potential_pos
         end
         potential_moves
     end

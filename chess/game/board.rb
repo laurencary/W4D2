@@ -64,10 +64,9 @@ class Board
                 raise "no piece at start position"
             else
                 self[start_pos] = NullPiece.instance
-                debugger
                 piece.pos = end_pos
                 self[end_pos] = piece
-                piece.board = @rows
+                # piece.board = @rows
             end
         else 
             raise "position given, not on board"
@@ -106,3 +105,4 @@ class Board
     private
     attr_reader :NullPiece
 end
+

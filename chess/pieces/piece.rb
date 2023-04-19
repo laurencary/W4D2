@@ -10,6 +10,7 @@ class Piece
     end
 
     def to_s
+        self.symbol
     end
 
     def [](pos)
@@ -22,9 +23,6 @@ class Piece
     end
 
     def valid_moves
-    end
-
-    def pos=(val)
     end
 
     def symbol

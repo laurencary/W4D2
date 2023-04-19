@@ -1,10 +1,10 @@
 require_relative "../pieces/piece.rb"
-
+require_relative "../pieces/null_piece.rb"
 
 class Board
     attr_reader :rows
     def initialize
-        @rows = Array.new(8) { Array.new(8, nil) }
+        @rows = Array.new(8) { Array.new(8, NullPiece.instance) }
 
         (0..7).each do |i|
             if i <= 1 

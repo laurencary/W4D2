@@ -27,7 +27,8 @@ module Slideable
 
         horizontal_dirs.each do |dir|
             current_row, current_col = dir[0], dir[1]
-            potential_moves << grow_unblocked_moves_in_dir(current_row, current_col)
+            debugger
+            potential_moves += grow_unblocked_moves_in_dir(current_row, current_col)
         end
 
         # if self.class != Bishop
@@ -79,7 +80,6 @@ module Slideable
         while continue
             if (0..7).include?(current_row + dx) && (0..7).include?(current_col + dy)
                 potential_pos = [current_row + dx, current_col + dy]
-                debugger
                 if self.board[potential_pos].empty?
                     potential_moves << potential_pos
                 elsif self.board[potential_pos].color != self.color 

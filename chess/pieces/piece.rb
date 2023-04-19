@@ -15,11 +15,6 @@ class Piece
     def empty?
 
     end
-    
-    def [](pos)
-        x, y = pos
-        @board[x][y]
-    end
 
     def valid_moves
     end
@@ -27,7 +22,7 @@ class Piece
     def pos=(val)
     end
 
-    def Symbol
+    def symbol
     end
 
     private

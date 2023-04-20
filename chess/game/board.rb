@@ -57,7 +57,8 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
-        puts valid_pos?(end_pos)
+        puts start_pos
+        puts end_pos
         if valid_pos?(start_pos) && valid_pos?(end_pos)
             piece = self[start_pos]
             if piece.empty?
